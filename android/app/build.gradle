@@ -26,8 +26,8 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+//        versionCode = flutter.versionCode
+//        versionName = flutter.versionName
     }
 
     buildTypes {
@@ -42,3 +42,32 @@ android {
 flutter {
     source = "../.."
 }
+
+android {
+    compileSdkVersion 34  // 직접 숫자로 지정
+    ndkVersion "23.1.7779620"  // 실제 사용 가능한 NDK 버전으로 지정
+
+    defaultConfig {
+        applicationId "com.example.kittyproject"
+        minSdkVersion 21  // 직접 숫자로 지정
+        targetSdkVersion 33  // 직접 숫자로 지정
+        versionCode 1  // 직접 숫자로 지정
+        versionName "1.0"  // 직접 문자열로 지정
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
